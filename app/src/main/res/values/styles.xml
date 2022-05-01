@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <style name="DialogButton">
+    <!--<item name="android:maxLines">1</item>-->
+    <item name="android:background">@color/dialog_button_background</item>
+  </style>
+
+  <style name="DialogTitle">
+    <item name="android:paddingTop">12sp</item>
+    <item name="android:paddingBottom">12sp</item>
+    <item name="android:textColor">@color/dialog_title</item>
+    <item name="android:textSize">24sp</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textAlignment">center</item>
+  </style>
+
+  <style name="FormBox">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:orientation">vertical</item>
+  </style>
+  
+  <style name="FromLabel">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:textSize">18sp</item>
+    <item name="android:layout_marginLeft">8dp</item>
+    <item name="android:layout_marginRight">8dp</item>
+  </style>
+
+  <style name="FormEditText">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:textSize">18sp</item>
+    <item name="android:textColor">@color/text</item>
+    <item name="android:textColorHint">@color/text_hint</item>
+    <item name="android:background">@color/background_edit_text</item>
+    <item name="android:layout_marginLeft">8dp</item>
+    <item name="android:layout_marginRight">8dp</item>
+    <item name="android:layout_marginBottom">8dp</item>
+  </style>
+
+</resources>

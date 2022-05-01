@@ -1,0 +1,6 @@
+.*
+*.iml
+build
+gradle/wrapper
+/captures
+local.properties

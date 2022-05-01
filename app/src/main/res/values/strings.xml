@@ -1,0 +1,43 @@
+<resources>
+  <string name="app_name">MusicDocApp</string>
+  <string name="settings">Settings</string>
+  <!-- Strings used for fragments for navigation -->
+  <string name="song_list">Song-List</string>
+  <string name="song_view">Song-View</string>
+  <string name="next">Next</string>
+  <string name="previous">Previous</string>
+  <string name="add">Add Song</string>
+  <string name="play">Play Song</string>
+  <string name="edit">Edit Song</string>
+  <string name="search">Search Song</string>
+  <string name="save">Save</string>
+  <string name="cancel">Cancel</string>
+  <string name="audio">Audio Setup</string>
+  <!-- Song attributes -->
+  <string name="title">Title</string>
+  <string name="artist">Artist</string>
+  <string name="composer">Composer</string>
+  <string name="album">Album</string>
+  <string name="year">Year</string>
+  <string name="tags">Tags</string>
+  <string name="edit_tags_title">Edit Tags</string>
+  <string name="add_song_title">Add new Song</string>
+  <string name="download_song_button">Download song from web</string>
+  <string name="import_song_button">Import song from file</string>
+  <string name="create_song_button">Create new song</string>
+  <!-- Preference Titles -->
+  <string name="messages_header">Messages</string>
+  <string name="sync_header">Sync</string>
+
+  <!-- Messages Preferences -->
+  <string name="signature_title">Your signature</string>
+  <string name="reply_title">Default reply action</string>
+
+  <!-- Sync Preferences -->
+  <string name="sync_title">Sync email periodically</string>
+  <string name="attachment_title">Download incoming attachments</string>
+  <string name="attachment_summary_on">Automatically download attachments for incoming emails
+  </string>
+  <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+</resources>
