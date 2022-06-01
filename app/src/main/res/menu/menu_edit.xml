@@ -4,6 +4,12 @@
     tools:context="io.github.musicdoc.app.MusicDocActivity"
     >
     <item
+      android:id="@+id/edit_bar_delete"
+      android:icon="@drawable/ic_delete"
+      android:title="@string/delete"
+      app:showAsAction="always"
+      />
+    <item
         android:id="@+id/edit_bar_save"
         android:icon="@drawable/ic_save"
         android:title="@string/save"

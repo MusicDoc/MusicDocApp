@@ -15,12 +15,11 @@ import io.github.musicdoc.app.MusicDocFragment;
 import io.github.musicdoc.app.MusicDocViewModel;
 import io.github.musicdoc.app.R;
 import io.github.musicdoc.app.databinding.FragmentSongViewBinding;
+import io.github.musicdoc.app.song.Song;
 
 public class SongViewFragment extends MusicDocFragment {
 
     private FragmentSongViewBinding binding;
-
-    private MusicDocViewModel viewModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -29,14 +28,21 @@ public class SongViewFragment extends MusicDocFragment {
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        Song song = getViewModel().getSelectedSong();
+        binding.songView.setSong(song);
         super.onViewCreated(view, savedInstanceState);
-        this.viewModel = new ViewModelProvider(getActivity()).get(MusicDocViewModel.class);
         FragmentActivity activity = getActivity();
         binding.buttonEdit.setOnClickListener(this::onEdit);
     }
 
     private void onEdit(View view) {
         navigate(R.id.action_nav_to_song_edit);
+    }
+
+    @Override
+    public void onResume() {
+        setSongToActionBar(getViewModel().getSelectedSong());
+        super.onResume();
     }
 
     @Override

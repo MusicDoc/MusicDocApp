@@ -20,6 +20,8 @@ public class MusicDocViewModel extends ViewModel {
 
   private final MutableLiveData<String> search;
 
+  private boolean createSong;
+
   public MusicDocViewModel() {
     this.selectedSong = new MutableLiveData<>();
     this.search = new MutableLiveData<>();
@@ -52,6 +54,7 @@ public class MusicDocViewModel extends ViewModel {
   }
 
   public void setSelectedSong(Song song) {
+    this.createSong = false;
     this.selectedSong.setValue(song);
   }
 
@@ -65,5 +68,20 @@ public class MusicDocViewModel extends ViewModel {
 
   public void setSearch(String searchText) {
     this.search.setValue(searchText);
+  }
+
+  /**
+   * @return {@code true} if a new {@link Song} shall be created by song editor, {@code false} otherwise
+   * (if {@link #getSelectedSong()} shall be edited).
+   */
+  public boolean isCreateSong() {
+    return this.createSong;
+  }
+
+  /**
+   * @param createSong new value of {@link #isCreateSong()}.
+   */
+  public void setCreateSong(boolean createSong) {
+    this.createSong = createSong;
   }
 }

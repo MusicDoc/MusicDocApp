@@ -20,8 +20,8 @@
   <style name="Theme.MusicDocApp.NoActionBar">
     <item name="windowActionBar">false</item>
     <item name="windowNoTitle">true</item>
-    <item name="android:windowMinWidthMajor">60%</item>
-    <item name="android:windowMinWidthMinor">50%</item>
+    <item name="android:windowMinWidthMajor">50%</item>
+    <item name="android:windowMinWidthMinor">40%</item>
   </style>
 
   <style name="Theme.MusicDocApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

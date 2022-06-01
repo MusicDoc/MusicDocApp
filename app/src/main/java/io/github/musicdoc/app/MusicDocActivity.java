@@ -18,6 +18,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import io.github.musicdoc.app.databinding.ActivityMusicDocBinding;
+import io.github.musicdoc.app.nav.NavigateBackHandler;
+import io.github.musicdoc.app.nav.NavigateBackHandlerSupport;
 import io.github.musicdoc.app.song.Song;
 import io.github.musicdoc.app.song.add.SongAddDialogFragment;
 import io.github.musicdoc.app.song.list.SongListFragment;
@@ -27,11 +29,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView;
 
-public class MusicDocActivity extends AppCompatActivity {
+public class MusicDocActivity extends AppCompatActivity implements NavigateBackHandlerSupport {
 
   private AppBarConfiguration appBarConfiguration;
   private ActivityMusicDocBinding binding;
   private MusicDocViewModel viewModel;
+  private NavigateBackHandler navigateBackHandler;
 
   private MusicDocViewModel getViewModel() {
     if (this.viewModel == null) {
@@ -52,10 +55,6 @@ public class MusicDocActivity extends AppCompatActivity {
     NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
     appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
     NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-
-    // binding.fab.setOnClickListener(new View.OnClickListener() {
-
-    getViewModel().getSelectedSongData().observe(this, this::onSongSelected);
   }
 
   @Override
@@ -117,7 +116,6 @@ public class MusicDocActivity extends AppCompatActivity {
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
     int id = item.getItemId();
-
     if (id == R.id.app_bar_settings) {
       navigate(R.id.action_nav_to_settings);
       return true;
@@ -132,20 +130,26 @@ public class MusicDocActivity extends AppCompatActivity {
   private void navigate(int navId) {
     Fragment fragment = getSupportFragmentManager().getPrimaryNavigationFragment();
     final NavController navController = NavHostFragment.findNavController(fragment);
-    // navController.navigateUp();
     navController.navigate(navId);
   }
 
   @Override
+  public void setNavigateBackHandler(NavigateBackHandler navigateBackHandler) {
+    this.navigateBackHandler = navigateBackHandler;
+  }
+
+  @Override
   public boolean onSupportNavigateUp() {
+    // TODO hook callback here from fragment
+    if (this.navigateBackHandler != null) {
+      boolean navigateBack = this.navigateBackHandler.onNavigateBack();
+      if (!navigateBack) {
+        return false;
+      }
+    }
     NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
     return NavigationUI.navigateUp(navController, appBarConfiguration)
       || super.onSupportNavigateUp();
   }
 
-  private void onSongSelected(Song song) {
-    ActionBar actionBar = getSupportActionBar();
-    actionBar.setTitle(song.getTitle());
-    actionBar.setSubtitle(song.getArtist());
-  }
 }

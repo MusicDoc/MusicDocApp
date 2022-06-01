@@ -11,7 +11,13 @@
   <string name="edit">Edit Song</string>
   <string name="search">Search Song</string>
   <string name="save">Save</string>
+  <string name="delete">Delete</string>
+  <string name="delete_confirm_title">Delete Song?</string>
+  <string name="delete_confirm_message">Do you really want to delete this song?</string>
   <string name="cancel">Cancel</string>
+  <string name="discard">Discard</string>
+  <string name="discard_confirm_title">Discard Changes?</string>
+  <string name="discard_confirm_message">Do you really want to discard your changes?</string>
   <string name="audio">Audio Setup</string>
   <!-- Song attributes -->
   <string name="title">Title</string>
